@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compound Wealth Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true"></div>
+    <header class="topbar" role="banner">
+      <div class="brand">
+        <span class="brand-mark">💰</span>
+        <div>
+          <h1>เครื่องคำนวณเงินทบต้น</h1>
+          <p>ใช้ง่าย ชัดเจน เหมาะกับทุกวัย</p>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="index.html" aria-current="page">หน้าคำนวณ</a>
+        <a href="about.html">About Us</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="hero" aria-labelledby="hero-title">
+        <h2 id="hero-title">วางแผนเงินรวมพร้อมดอกเบี้ยทบต้นแบบมืออาชีพ</h2>
+        <p>
+          กรอกข้อมูลทีละช่องตามคำแนะนำด้านล่าง ระบบจะคำนวณเงินรวมปลายทางให้ทันที พร้อมแสดงกำไรจากดอกเบี้ยอย่างชัดเจน
+        </p>
+      </section>
+
+      <section class="calculator-card" aria-labelledby="calc-title">
+        <h3 id="calc-title">แบบฟอร์มคำนวณ</h3>
+
+        <form id="compound-form" novalidate>
+          <div class="input-grid">
+            <div class="field">
+              <label for="principal">1) เงินต้นเริ่มต้น (บาท)</label>
+              <input id="principal" name="principal" type="number" min="0" step="0.01" placeholder="ตัวอย่าง: 10000" required />
+              <small>แนะนำ: เริ่มทดลองที่ 10,000 - 100,000 บาท</small>
+            </div>
+
+            <div class="field">
+              <label for="rate">2) อัตราดอกเบี้ยต่อปี (%)</label>
+              <input id="rate" name="rate" type="number" min="0" step="0.01" placeholder="ตัวอย่าง: 5" required />
+              <small>แนะนำทั่วไป: 1% - 8% ต่อปี (ขึ้นกับผลิตภัณฑ์การเงิน)</small>
+            </div>
+
+            <div class="field">
+              <label for="times">3) จำนวนครั้งที่ทบต้นต่อปี</label>
+              <input id="times" name="times" type="number" min="1" step="1" placeholder="ตัวอย่าง: 12" required />
+              <small>เช่น 1 = ปีละครั้ง, 12 = รายเดือน, 365 = รายวัน</small>
+            </div>
+
+            <div class="field">
+              <label for="years">4) ระยะเวลาลงทุน (ปี)</label>
+              <input id="years" name="years" type="number" min="0" step="0.1" placeholder="ตัวอย่าง: 10" required />
+              <small>แนะนำ: ลองเทียบ 5 ปี, 10 ปี, 20 ปี เพื่อเห็นผลต่าง</small>
+            </div>
+          </div>
+
+          <div class="buttons">
+            <button type="submit" class="btn btn-primary">คำนวณเงินรวม</button>
+            <button type="button" id="reset-btn" class="btn btn-secondary" hidden>คำนวณใหม่</button>
+          </div>
+        </form>
+
+        <section id="result" class="result" aria-live="polite" hidden>
+          <h4>ผลลัพธ์การคำนวณ</h4>
+          <p><strong>เงินรวมปลายทาง:</strong> <span id="total-amount">-</span> บาท</p>
+          <p><strong>ดอกเบี้ยที่ได้รับ:</strong> <span id="interest-amount">-</span> บาท</p>
+          <p class="formula">สูตรที่ใช้: A = P(1 + r/n)<sup>nt</sup></p>
+        </section>
+      </section>
+    </main>
+
+    <footer>
+      <p>ออกแบบให้รองรับโทรศัพท์ แท็บเล็ต ไอแพด และคอมพิวเตอร์</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
