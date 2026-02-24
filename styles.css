@@ -1,0 +1,262 @@
+:root {
+  --bg-overlay: linear-gradient(130deg, rgba(1, 75, 96, 0.82), rgba(2, 51, 78, 0.82));
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --text-main: #0f2230;
+  --text-light: #eff8ff;
+  --primary: #1f8ef1;
+  --primary-dark: #0f6ec2;
+  --secondary: #f1f5f9;
+  --success: #0f766e;
+  --shadow: 0 10px 30px rgba(2, 27, 47, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Prompt", system-ui, sans-serif;
+  color: var(--text-main);
+  background: #052c3d;
+  position: relative;
+}
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  background-image: var(--bg-overlay),
+    url("https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+.about-bg {
+  background-image: var(--bg-overlay),
+    url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80");
+}
+
+.topbar {
+  max-width: 1180px;
+  margin: 1rem auto;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-light);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.brand-mark {
+  font-size: 2rem;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+}
+
+.topbar p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+nav {
+  display: flex;
+  gap: 0.65rem;
+}
+
+nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+}
+
+nav a[aria-current="page"],
+nav a:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.container {
+  width: min(1180px, 93vw);
+  margin: 1rem auto 2rem;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.hero,
+.calculator-card,
+.member-card,
+footer {
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  padding: 1.2rem 1.2rem;
+}
+
+.hero h2 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.3rem, 4vw, 2rem);
+}
+
+.hero p {
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.6;
+}
+
+.calculator-card {
+  padding: 1.5rem;
+}
+
+.calculator-card h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+label {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 0.88rem 0.95rem;
+  border-radius: 12px;
+  border: 2px solid #c6d7e5;
+  font-size: 1.08rem;
+}
+
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #31c3ff;
+  outline-offset: 2px;
+}
+
+small {
+  color: #3f5568;
+  font-size: 0.9rem;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.2rem;
+}
+
+.btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 0.88rem 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: #1d2939;
+}
+
+.result {
+  margin-top: 1.4rem;
+  border-left: 6px solid var(--success);
+  background: #f0fdf9;
+  border-radius: 14px;
+  padding: 1rem 1rem 0.8rem;
+}
+
+.result p {
+  font-size: 1.08rem;
+}
+
+.formula {
+  color: #1f3b4d;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.member-card {
+  padding: 1rem;
+}
+
+.member-card h3 {
+  margin-top: 0;
+}
+
+footer {
+  width: min(1180px, 93vw);
+  margin: 1rem auto 1.4rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .input-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 17px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav a {
+    flex: 1;
+    text-align: center;
+  }
+}
